@@ -94,7 +94,7 @@ func OuoBypass(ouoURL string) (string, error) {
 	}
 	data.Set("x-token", recaptchaV3)
 	for i := 0; i < 2; i++ {
-		time.Sleep(3 * time.Second)
+		time.Sleep(1 * time.Second)
 		log.Default().Println("ouo short-link next URL: ", nextURL)
 		postReq, err := http.NewRequest(http.MethodPost, nextURL, strings.NewReader(data.Encode()))
 		postReq.Header = http.Header{
